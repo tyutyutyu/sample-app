@@ -1,4 +1,4 @@
-package hu.bankmonitor.demo.sampleapp;
+package com.tyutyutyu.demo.sampleapp;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

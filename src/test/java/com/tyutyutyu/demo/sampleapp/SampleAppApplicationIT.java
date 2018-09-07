@@ -1,9 +1,10 @@
-package hu.bankmonitor.demo.sampleapp;
+package com.tyutyutyu.demo.sampleapp;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import com.tyutyutyu.demo.sampleapp.SampleAppApplication;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

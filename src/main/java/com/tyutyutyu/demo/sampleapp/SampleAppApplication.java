@@ -1,4 +1,4 @@
-package hu.bankmonitor.demo.sampleapp;
+package com.tyutyutyu.demo.sampleapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
