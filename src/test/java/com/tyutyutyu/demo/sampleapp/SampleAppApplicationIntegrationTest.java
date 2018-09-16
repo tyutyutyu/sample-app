@@ -28,30 +28,19 @@ public class SampleAppApplicationIntegrationTest {
 	private MockMvc mockMvc;
 
 	@Before
-	public void setup() {
+	public void before() {
 
 		mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
 	}
 
 	@Test
-	public void testStatus_OK() throws Exception {
+	public void testStatusReturnOk() throws Exception {
 
 		// @formatter:off
 		mockMvc.perform(get("/status")
 				.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
 				.andExpect(content().string("OK"));
-		// @formatter:on
-	}
-
-	@Test(expected = AssertionError.class)
-	public void testStatus_NOK_error() throws Exception {
-
-		// @formatter:off
-		mockMvc.perform(get("/status")
-				.accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().isOk())
-				.andExpect(content().string("NOK"));
 		// @formatter:on
 	}
 
