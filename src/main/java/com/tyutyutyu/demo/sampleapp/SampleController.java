@@ -1,16 +1,21 @@
 package com.tyutyutyu.demo.sampleapp;
 
+import java.util.Collections;
+import java.util.Map;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@RequiredArgsConstructor
 @RestController
 public class SampleController {
 
-	@RequestMapping("/status")
-	@SuppressWarnings("static-method")
-	public String status() {
+	private final SampleService sampleService;
 
-		return "OK";
+	@RequestMapping("/status")
+	public Map<String, String> status() {
+
+		return Collections.singletonMap("status", sampleService.checkStatus());
 	}
 
 }
