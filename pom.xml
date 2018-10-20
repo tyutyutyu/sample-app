@@ -13,19 +13,28 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.5.RELEASE</version>
+		<version>2.0.6.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.8</java.version>
+		<java.version>11</java.version>
+
+		<byte-buddy.version>1.9.2</byte-buddy.version><!-- for Java 11 compatibility -->
+		<spring.version>5.1.1.RELEASE</spring.version><!-- for JUnit 5 compatibility without illegal access warning -->
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- for Spring 5.1.1 compatibility -->
+		<dependency>
+			<groupId>io.projectreactor.netty</groupId>
+			<artifactId>reactor-netty</artifactId>
+			<version>0.8.1.RELEASE</version>
 		</dependency>
 
 		<!-- PROVIDED -->
@@ -79,6 +88,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.19.1</version><!-- for JUnit 5 compatibility -->
 				<dependencies>
 					<dependency>
 						<groupId>org.junit.platform</groupId>
@@ -91,6 +101,9 @@
 						<version>${junit-jupiter.version}</version>
 					</dependency>
 				</dependencies>
+				<configuration>
+					<argLine>--illegal-access=debug --add-opens java.base/java.io=ALL-UNNAMED</argLine>
+				</configuration>
 			</plugin>
 
 			<plugin>

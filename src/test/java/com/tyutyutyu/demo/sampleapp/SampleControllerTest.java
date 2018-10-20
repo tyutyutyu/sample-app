@@ -16,6 +16,10 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
+// TODO: Tomcat cause: WARNING: Illegal reflective access by org.apache.catalina.loader.WebappClassLoaderBase
+// (file:/C:/Users/Tyutyutyu/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/8.5.34/tomcat-embed-core-8.5.34.jar) to method
+// java.lang.ThreadLocal$ThreadLocalMap.expungeStaleEntries()
+
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(controllers = SampleController.class)
 public class SampleControllerTest {
