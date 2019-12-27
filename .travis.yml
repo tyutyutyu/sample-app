@@ -3,3 +3,17 @@ language: java
 jdk:
   - oraclejdk11
   - openjdk11
+
+addons:
+  sonarcloud:
+    organization: "tyutyutyu"
+    token:
+      secure: "Y+ctA1qnYhpBkRCYRCi9Bm0jVU8rBQTjlAdc2juiocdf+l4+sAWodaFTlDLWTTFPtrTzpBANVLP96N/BtDcRqiHyXaG3wQJDJHDovSO+OoRSTRL5+M9vzthwKGZGR4UOzUTFXokkSHVZae/JNxETYxQ3Sh3ZYF4AGyfIM8yWZMag/gSyeNyv55NC65gOwbqJeUF1rRn8e9qZwBjZ/2aqmWCemc92QDUieAHieacHFBRtNlRZOWVdEy+1NprGHaEz9gMng38VN/5+fFLggLwdLDbNoJDJHF/eGbcThHud9xEfBkwK3c3CiKEkh7I08PRhzU/9S1/WiPe4eFDrwviWpiWG4AiRKn/pb4vpykFuIV+ZeWLC3dXyaR7+QRnEhMr9wAorzp/KvzyY5Pd/vQCregbvdstIVmzfSajhVf3kmLlfJriH+RmbKwF/EA4uQ5jR4fgLINSi72RkXb9/ky9SumDU4BvVg8g+LQzz/FfrJEU4p3yvB5+Cb2SyUM4FlBTvnU2Qrs/uGuHagm/gHkczDvtNHR+rM3xMA1POOeaKOSu/g/7STfc+RqKUrV/AnZEaiS30VND++5/Dq2L7IHho1UpwqZgefhR+qY/R8f1QjPeMnA0ulw2bAVqJg1RIm+7fzQ4cDMdBqlEDHrAc7lYLQ8UzEpP2cOudR2Ktnjj/Vrs="
+
+script:
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=tyutyutyu_sample-app
+
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
